@@ -1,0 +1,34 @@
+{
+    "optical": [
+        {
+            "id": 1,
+            "name": "Optical Glasses 1",
+            "description": "Men Optical glasses BRAND",
+            "fShape": "square",
+            "gender": "men"
+        },
+        {
+            "id": 2,
+            "name": "Optical Glasses 2",
+            "description": "Women Optical glasses BRAND",
+            "fShape": "aviator",
+            "gender": "women"
+        }
+    ],
+    "sunglasses": [
+        {
+            "id": 3,
+            "name": "Sunglasses 1",
+            "description": "Men Sunglasses BRAND",
+            "fShape": "round",
+            "gender": "men"
+        },
+        {
+            "id": 4,
+            "name": "Sunglasses 2",
+            "description": "Women Sunglasses BRAND",
+            "fShape": "rectangle",
+            "gender": "women"
+        }
+    ]
+}

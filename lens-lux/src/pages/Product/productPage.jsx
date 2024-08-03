@@ -1,34 +1,46 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-// Simulate fetching product data
-const fetchProductData = (productId) => {
-    // Replace with actual data fetching logic
-    const products = [
-        { id: 1, name: 'Men Optical Glasses 1', description: 'Description for Men Optical Glasses 1' },
-        { id: 2, name: 'Men Optical Glasses 2', description: 'Description for Men Optical Glasses 2' },
-        { id: 3, name: 'Women Sunglasses 1', description: 'Description for Women Sunglasses 1' },
-        { id: 4, name: 'Women Sunglasses 2', description: 'Description for Women Sunglasses 2' },
-        // Add more products here
-    ];
-    return products.find(product => product.id === parseInt(productId));
-};
-
 const ProductPage = () => {
-    const { productId } = useParams();
+    const { productId } = useParams(); // Access URL parameters
     const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const data = fetchProductData(productId);
-        setProduct(data);
+        const fetchProductData = async () => {
+            try {
+                const response = await fetch('/data/products.json'); // Fetch data from JSON
+                const data = await response.json();
+
+                // Find the product by ID
+                const product = Object.values(data).flat().find(item => item.id === parseInt(productId));
+
+                setProduct(product);
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching product data:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchProductData();
     }, [productId]);
 
-    if (!product) return <div>Loading...</div>;
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (!product) {
+        return <div>Product not found.</div>;
+    }
 
     return (
         <div>
             <h1>{product.name}</h1>
-            <p>{product.description}</p>
+            <p>Product ID: {product.id}</p>
+            <p>Gender: {product.gender}</p>
+            {/* Add more product details here */}
         </div>
     );
 };

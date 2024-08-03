@@ -57,11 +57,11 @@ const navigation = {
                     id: 'shop',
                     name: 'Shop',
                     items: [
-                        { name: 'All Opticals', href: '#' },
+                        { name: 'All Opticals', href: '/glasses/optical' },
                         { name: 'New Arrivals', href: '#' },
-                        { name: 'Opticals for Men', href: '#' },
-                        { name: 'Opticals for Women', href: '#' },
-                        { name: 'Opticals for Kids', href: '#' },
+                        { name: 'Opticals for Men', href: '/glasses/optical/men' },
+                        { name: 'Opticals for Women', href: '/glasses/optical/women' },
+                        { name: 'Opticals for Kids', href: '/glasses/optical/kids' },
                         { name: 'Unisex', href: '#' },
                         { name: 'Best Selling', href: '#' },
                     ],
@@ -360,13 +360,13 @@ export default function Navbar() {
 
 
 
-                
+
                 <nav
-                
+
                     id="navbar"
                     aria-label="Top"
                     className="sticky top-0 z-10 w-full bg-white mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
-                
+
                 >
                     <div className=" border-b border-gray-200">
                         <div className="flex h-16 items-center">
