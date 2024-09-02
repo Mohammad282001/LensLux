@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const slides = [
     {
-        image: "/api/placeholder/1200/600",
+        image: "https://seeandbeseeneyecare.com/wp-content/uploads/2021/09/seeandbeseen-midtown-galllery-img18.jpg",
         title: "Stylish Frames",
         description: "Discover our collection of trendy eyewear",
-        ctaText: "Shop Frames"
+        ctaText: "Shop Frames",
+        link: "/glasses/optical"
     },
     {
-        image: "/api/placeholder/1200/600",
-        title: "Premium Lenses",
-        description: "Top-quality lenses for crystal clear vision",
-        ctaText: "Explore Lenses"
+        image: "https://healthcare.utah.edu/sites/g/files/zrelqx136/files/media/images/2023/Eye%20Exam-AdobeStock_572571508.jpeg",
+        title: "Book An Eye Exam",
+        description: "Schedule your eye exam today to ensure your vision stays sharp and your prescription is up-to-date",
+        ctaText: "Book Now",
+        link: "/eyeExam"
     },
     {
-        image: "/api/placeholder/1200/600",
-        title: "Designer Brands",
-        description: "Explore exclusive designer eyewear collections",
-        ctaText: "View Brands"
+        video: "https://www.youtube.com/embed/qFLCx8naQqE?autoplay=1&loop=1&playlist=qFLCx8naQqE&mute=1",
+        title: "Frame Finder",
+        description: "Find your perfect frame upon your face shape",
+        ctaText: "Find A Frame",
+        link: "/framefinder"
     }
 ];
 
@@ -60,13 +64,13 @@ const HeroSlider = () => {
             opacity: 0,
             transition: {
                 x: { type: 'spring', stiffness: 300, damping: 30 },
-                opacity: { duration: 0.5 },
+                opacity: { duration: 5.0 },
             },
         }),
     };
 
     return (
-        <div className=" relative w-full h-[600px] overflow-hidden bg-gray-100">
+        <div className="relative w-full h-[600px] overflow-hidden bg-gray-100">
             <AnimatePresence initial={false} custom={direction}>
                 <motion.div
                     key={currentSlide}
@@ -77,11 +81,23 @@ const HeroSlider = () => {
                     exit="exit"
                     className="absolute top-0 left-0 w-full h-full"
                 >
-                    <img
-                        src={slides[currentSlide].image}
-                        alt={slides[currentSlide].title}
-                        className="w-full h-full object-cover"
-                    />
+                    {slides[currentSlide].image ? (
+                        <img
+                            src={slides[currentSlide].image}
+                            alt={slides[currentSlide].title}
+                            className="w-full h-full object-cover blur-sm"
+                        />
+                    ) : (
+                        <iframe
+                            src={slides[currentSlide].video}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-full"
+                            style={{ border: 'none' }}
+                        ></iframe>
+                    )}
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                         <div className="text-center text-white max-w-2xl mx-auto px-4">
                             <motion.h2
@@ -100,14 +116,17 @@ const HeroSlider = () => {
                             >
                                 {slides[currentSlide].description}
                             </motion.p>
-                            <motion.button
+                            <motion.div
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.6, duration: 0.8 }}
-                                className="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-colors"
                             >
-                                {slides[currentSlide].ctaText}
-                            </motion.button>
+                                <Link to={slides[currentSlide].link} className="inline-block">
+                                    <button className="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-colors">
+                                        {slides[currentSlide].ctaText}
+                                    </button>
+                                </Link>
+                            </motion.div>
                         </div>
                     </div>
                 </motion.div>
@@ -129,7 +148,7 @@ const HeroSlider = () => {
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+                        className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-red-500' : 'bg-white bg-opacity-50 hover:bg-opacity-75'
                             }`}
                     />
                 ))}

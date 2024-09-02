@@ -7,7 +7,7 @@ const products = [
         name: 'Giorgio Arrivals',
         description: '0AR8181 Phantos Sunglasses 587571 - Size 49',
         price: '99.50 JOD',
-        image: '/api/placeholder/300/200',
+        image: 'https://eye-boutique.imgix.net/2024-03-10/FRPRD0014WV17O1O154000000-1.jpg?auto=format&ixlib=react-9.8.0&w=2619',
         category: 'New Arrivals'
     },
     {
@@ -15,7 +15,7 @@ const products = [
         name: 'Giorgio Products',
         description: '0AR8181 Phantos Sunglasses 587571 - Size 49',
         price: '99.50 JOD',
-        image: '/api/placeholder/300/200',
+        image: 'https://eye-boutique.imgix.net/2024-03-10/FRPRD0014WV17O1O154000000-1.jpg?auto=format&ixlib=react-9.8.0&w=2619',
         category: 'Featured Products'
     },
     {
@@ -23,7 +23,7 @@ const products = [
         name: 'Giorgio Sellers',
         description: '0AR8181 Phantos Sunglasses 587571 - Size 49',
         price: '99.50 JOD',
-        image: '/api/placeholder/300/200',
+        image: 'https://eye-boutique.imgix.net/2024-03-10/FRPRD0014WV17O1O154000000-1.jpg?auto=format&ixlib=react-9.8.0&w=2619',
         category: 'Best Sellers'
     },
     {
@@ -31,7 +31,7 @@ const products = [
         name: 'Sellers 2',
         description: '0AR8181 Phantos Sunglasses 587571 - Size 49',
         price: '99.50 JOD',
-        image: '/api/placeholder/300/200',
+        image: 'https://eye-boutique.imgix.net/2024-03-10/FRPRD0014WV17O1O154000000-1.jpg?auto=format&ixlib=react-9.8.0&w=2619',
         category: 'Best Sellers'
     },
     {
@@ -39,20 +39,21 @@ const products = [
         name: 'Sellers 3',
         description: '0AR8181 Phantos Sunglasses 587571 - Size 49',
         price: '99.50 JOD',
-        image: '/api/placeholder/300/200',
+        image: 'https://eye-boutique.imgix.net/2024-03-10/FRPRD0014WV17O1O154000000-1.jpg?auto=format&ixlib=react-9.8.0&w=2619',
         category: 'Best Sellers'
     },
     {
         id: 6,
-        name: 'Sellers 4',
+        name: 'Ray-Ban',
         description: '0AR8181 Phantos Sunglasses 587571 - Size 49',
         price: '99.50 JOD',
-        image: '/api/placeholder/300/200',
+        image: 'https://eye-boutique.imgix.net/2024-03-10/FRPRD0014WV17O1O154000000-1.jpg?auto=format&ixlib=react-9.8.0&w=2619',
         category: 'Best Sellers'
     },
+    
 ];
 
-const categories = ['New Arrivals', 'Featured Products', 'Best Sellers'];
+const categories = ['Best Sellers', 'Featured Products', 'New Arrivals'];
 
 const ProductSlider = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
